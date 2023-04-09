@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.surf_flutter_study_jam_2023">
+    package="com.example.surf_flutter_study_jam_2023_atom735">
    <application
-        android:label="surf_flutter_study_jam_2023"
+        android:label="surf_flutter_study_jam_2023_atom735"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

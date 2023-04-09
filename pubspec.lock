@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.10.0"
+  atmos_lints:
+    dependency: "direct dev"
+    description:
+      name: atmos_lints
+      sha256: deaaf842ee7d0bfc5c7441866d893942e6108608764dca1582ef680bbed590df
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   boolean_selector:
     dependency: transitive
     description:
