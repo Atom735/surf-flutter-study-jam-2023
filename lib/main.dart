@@ -1,8 +1,4 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-
-import 'features/ticket_storage/ticket_storage_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +15,11 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final navigatorKey = GlobalKey<NavigatorState>(debugLabel: 'RootNavigator');
 
+  late final actions = {
+    ...WidgetsApp.defaultActions,
+    AddTicketDialogOpenIntent: AddTicketDialogOpenAction(navigatorKey),
+  };
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,15 +30,37 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       home: const MyTicketStorageScreenWidget(),
+      actions: actions,
     );
   }
 }
 
 /// Намерение открыть диалог добавления билета.
 ///
+/// См также:
+/// - [AddTicketDialogOpenAction] - Обработчик этого намерения.
+///
 /// {@category Intents}
 class AddTicketDialogOpenIntent extends Intent {
   const AddTicketDialogOpenIntent();
+}
+
+/// Действие при намерение открыть диалог добавления билета.
+///
+/// См также:
+/// - [AddTicketDialogOpenIntent] - Данные намерения.
+///
+/// {@category Actions}
+class AddTicketDialogOpenAction extends Action<AddTicketDialogOpenIntent> {
+  final GlobalKey<NavigatorState> navigatorKey;
+
+  AddTicketDialogOpenAction(this.navigatorKey);
+
+  @override
+  Object? invoke(AddTicketDialogOpenIntent intent) async {
+    // showModalBottomSheet(context: context, builder: builder)
+    // navigatorKey.currentState?.push(route);
+  }
 }
 
 class MyTicketStorageScreenWidget extends StatelessWidget {
