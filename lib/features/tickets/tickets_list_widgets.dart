@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '/core/core_widgets.dart';
+import 'tickets_item_widgets.dart';
 import 'tickets_list_bloc.dart';
 import 'tickets_list_bloc_events.dart';
 import 'tickets_list_bloc_states.dart';
-import 'tickets_widgets.dart';
 
 class TicketListContentWidget extends StatefulWidget {
   const TicketListContentWidget({
@@ -35,6 +35,13 @@ class _TicketListContentWidgetState extends State<TicketListContentWidget> {
     bloc.add(const TicketsListBlocEvent.refresh());
   }
 
+  @override
+  void reassemble() {
+    super.reassemble();
+    final bloc = widget.bloc ?? context.read<TicketsListBloc>();
+    bloc.add(const TicketsListBlocEvent.refresh());
+  }
+
   Widget emptyBuilder(BuildContext context) {
     return const Center(
       key: ObjectKey(null),
@@ -48,7 +55,7 @@ class _TicketListContentWidgetState extends State<TicketListContentWidget> {
     Widget itemBuilder(BuildContext context, int index) {
       final item = items[index];
       return TicketListTileWidget(
-        key: ObjectKey(item),
+        key: ObjectKey(item.state.id),
         data: item,
       );
     }

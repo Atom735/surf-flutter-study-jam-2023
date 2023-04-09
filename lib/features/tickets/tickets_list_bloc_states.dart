@@ -4,7 +4,7 @@ library tickets_list.states;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'tickets_models.dart';
+import 'tickets_item_bloc.dart';
 
 part 'tickets_list_bloc_states.freezed.dart';
 
@@ -16,7 +16,7 @@ class TicketsListBlocState with _$TicketsListBlocState {
     required bool isPending,
 
     /// Список билетов.
-    required List<TicketsModel> items,
+    required List<TicketsItemBloc> items,
 
     /// Сообщение об ошибке.
     String? errorMessage,

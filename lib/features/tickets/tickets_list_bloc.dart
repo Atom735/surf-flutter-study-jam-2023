@@ -5,7 +5,9 @@ library tickets_list.bloc;
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:uuid/uuid.dart';
 
+import 'tickets_item_bloc.dart';
 import 'tickets_list_bloc_events.dart';
 import 'tickets_list_bloc_states.dart';
 import 'tickets_models.dart';
@@ -56,7 +58,17 @@ class TicketsListBloc extends Bloc<TicketsListBlocEvent, TicketsListBlocState> {
       state.copyWith(
         isPending: false,
         errorMessage: null,
-        items: [...state.items, TicketsModel.unknown()],
+        items: [
+          ...state.items,
+          TicketsItemBloc(
+            TicketId(
+              const Uuid().v5(
+                Uuid.NAMESPACE_URL,
+                'tickets.async-tour.xyz',
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -77,7 +89,24 @@ class TicketsListBloc extends Bloc<TicketsListBlocEvent, TicketsListBlocState> {
       state.copyWith(
         isPending: false,
         errorMessage: null,
-        items: [],
+        items: [
+          TicketsItemBloc(
+            TicketId(
+              const Uuid().v5(
+                Uuid.NAMESPACE_URL,
+                'tickets.async-tour.xyz',
+              ),
+            ),
+          ),
+          TicketsItemBloc(
+            TicketId(
+              const Uuid().v5(
+                Uuid.NAMESPACE_URL,
+                'tickets.async-tour.xyz',
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

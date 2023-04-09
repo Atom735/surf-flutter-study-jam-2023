@@ -20,7 +20,7 @@ mixin _$TicketsListBlocState {
   bool get isPending => throw _privateConstructorUsedError;
 
   /// Список билетов.
-  List<TicketsModel> get items => throw _privateConstructorUsedError;
+  List<TicketsItemBloc> get items => throw _privateConstructorUsedError;
 
   /// Сообщение об ошибке.
   String? get errorMessage => throw _privateConstructorUsedError;
@@ -36,7 +36,8 @@ abstract class $TicketsListBlocStateCopyWith<$Res> {
           $Res Function(TicketsListBlocState) then) =
       _$TicketsListBlocStateCopyWithImpl<$Res, TicketsListBlocState>;
   @useResult
-  $Res call({bool isPending, List<TicketsModel> items, String? errorMessage});
+  $Res call(
+      {bool isPending, List<TicketsItemBloc> items, String? errorMessage});
 }
 
 /// @nodoc
@@ -65,7 +66,7 @@ class _$TicketsListBlocStateCopyWithImpl<$Res,
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
-              as List<TicketsModel>,
+              as List<TicketsItemBloc>,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -82,7 +83,8 @@ abstract class _$$_TicketsListBlocStateCopyWith<$Res>
       __$$_TicketsListBlocStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isPending, List<TicketsModel> items, String? errorMessage});
+  $Res call(
+      {bool isPending, List<TicketsItemBloc> items, String? errorMessage});
 }
 
 /// @nodoc
@@ -108,7 +110,7 @@ class __$$_TicketsListBlocStateCopyWithImpl<$Res>
       items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
-              as List<TicketsModel>,
+              as List<TicketsItemBloc>,
       errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
@@ -122,7 +124,7 @@ class __$$_TicketsListBlocStateCopyWithImpl<$Res>
 class _$_TicketsListBlocState implements _TicketsListBlocState {
   const _$_TicketsListBlocState(
       {required this.isPending,
-      required final List<TicketsModel> items,
+      required final List<TicketsItemBloc> items,
       this.errorMessage})
       : _items = items;
 
@@ -131,11 +133,11 @@ class _$_TicketsListBlocState implements _TicketsListBlocState {
   final bool isPending;
 
   /// Список билетов.
-  final List<TicketsModel> _items;
+  final List<TicketsItemBloc> _items;
 
   /// Список билетов.
   @override
-  List<TicketsModel> get items {
+  List<TicketsItemBloc> get items {
     if (_items is EqualUnmodifiableListView) return _items;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_items);
@@ -177,7 +179,7 @@ class _$_TicketsListBlocState implements _TicketsListBlocState {
 abstract class _TicketsListBlocState implements TicketsListBlocState {
   const factory _TicketsListBlocState(
       {required final bool isPending,
-      required final List<TicketsModel> items,
+      required final List<TicketsItemBloc> items,
       final String? errorMessage}) = _$_TicketsListBlocState;
 
   @override
@@ -187,7 +189,7 @@ abstract class _TicketsListBlocState implements TicketsListBlocState {
   @override
 
   /// Список билетов.
-  List<TicketsModel> get items;
+  List<TicketsItemBloc> get items;
   @override
 
   /// Сообщение об ошибке.

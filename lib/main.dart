@@ -41,7 +41,6 @@ class _MyAppState extends State<MyApp> {
     super.reassemble();
     assert(() {
       actions = actionsBuilder();
-      _ticketsListBloc = TicketsListBloc();
       return true;
     }());
   }

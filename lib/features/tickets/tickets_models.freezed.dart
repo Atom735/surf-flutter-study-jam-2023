@@ -15,151 +15,116 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$TicketsModel {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(TicketsModelUnknown value) unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(TicketsModelUnknown value)? unknown,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(TicketsModelUnknown value)? unknown,
-    required TResult orElse(),
-  }) =>
+mixin _$TicketId {
+  String get value => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $TicketIdCopyWith<TicketId> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TicketsModelCopyWith<$Res> {
-  factory $TicketsModelCopyWith(
-          TicketsModel value, $Res Function(TicketsModel) then) =
-      _$TicketsModelCopyWithImpl<$Res, TicketsModel>;
+abstract class $TicketIdCopyWith<$Res> {
+  factory $TicketIdCopyWith(TicketId value, $Res Function(TicketId) then) =
+      _$TicketIdCopyWithImpl<$Res, TicketId>;
+  @useResult
+  $Res call({String value});
 }
 
 /// @nodoc
-class _$TicketsModelCopyWithImpl<$Res, $Val extends TicketsModel>
-    implements $TicketsModelCopyWith<$Res> {
-  _$TicketsModelCopyWithImpl(this._value, this._then);
+class _$TicketIdCopyWithImpl<$Res, $Val extends TicketId>
+    implements $TicketIdCopyWith<$Res> {
+  _$TicketIdCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_value.copyWith(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$TicketsModelUnknownCopyWith<$Res> {
-  factory _$$TicketsModelUnknownCopyWith(_$TicketsModelUnknown value,
-          $Res Function(_$TicketsModelUnknown) then) =
-      __$$TicketsModelUnknownCopyWithImpl<$Res>;
+abstract class _$$_TicketIdCopyWith<$Res> implements $TicketIdCopyWith<$Res> {
+  factory _$$_TicketIdCopyWith(
+          _$_TicketId value, $Res Function(_$_TicketId) then) =
+      __$$_TicketIdCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String value});
 }
 
 /// @nodoc
-class __$$TicketsModelUnknownCopyWithImpl<$Res>
-    extends _$TicketsModelCopyWithImpl<$Res, _$TicketsModelUnknown>
-    implements _$$TicketsModelUnknownCopyWith<$Res> {
-  __$$TicketsModelUnknownCopyWithImpl(
-      _$TicketsModelUnknown _value, $Res Function(_$TicketsModelUnknown) _then)
+class __$$_TicketIdCopyWithImpl<$Res>
+    extends _$TicketIdCopyWithImpl<$Res, _$_TicketId>
+    implements _$$_TicketIdCopyWith<$Res> {
+  __$$_TicketIdCopyWithImpl(
+      _$_TicketId _value, $Res Function(_$_TicketId) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$_TicketId(
+      null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$TicketsModelUnknown implements TicketsModelUnknown {
-  _$TicketsModelUnknown();
+class _$_TicketId implements _TicketId {
+  _$_TicketId(this.value);
+
+  @override
+  final String value;
 
   @override
   String toString() {
-    return 'TicketsModel.unknown()';
+    return 'TicketId(value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$TicketsModelUnknown);
+        (other.runtimeType == runtimeType &&
+            other is _$_TicketId &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, value);
 
+  @JsonKey(ignore: true)
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() unknown,
-  }) {
-    return unknown();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? unknown,
-  }) {
-    return unknown?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(TicketsModelUnknown value) unknown,
-  }) {
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(TicketsModelUnknown value)? unknown,
-  }) {
-    return unknown?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(TicketsModelUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
+  @pragma('vm:prefer-inline')
+  _$$_TicketIdCopyWith<_$_TicketId> get copyWith =>
+      __$$_TicketIdCopyWithImpl<_$_TicketId>(this, _$identity);
 }
 
-abstract class TicketsModelUnknown implements TicketsModel {
-  factory TicketsModelUnknown() = _$TicketsModelUnknown;
+abstract class _TicketId implements TicketId {
+  factory _TicketId(final String value) = _$_TicketId;
+
+  @override
+  String get value;
+  @override
+  @JsonKey(ignore: true)
+  _$$_TicketIdCopyWith<_$_TicketId> get copyWith =>
+      throw _privateConstructorUsedError;
 }

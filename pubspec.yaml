@@ -41,6 +41,7 @@ dependencies:
       url: https://github.com/followthemoney1/modal_bottom_sheet.git
       ref: main
       path: modal_bottom_sheet
+  uuid: ^3.0.7
 
 dev_dependencies:
   atmos_lints: 1.0.1
