@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'core/bottom_sheet/bottom_sheet_widgets.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -59,7 +61,14 @@ class AddTicketDialogOpenAction extends Action<AddTicketDialogOpenIntent> {
   @override
   Object? invoke(AddTicketDialogOpenIntent intent) async {
     // showModalBottomSheet(context: context, builder: builder)
-    // navigatorKey.currentState?.push(route);
+    await navigatorKey.currentState!.push(
+      MyModalBottomSheetPage(
+        builder: (context) {
+          return SingleChildScrollView(child: Placeholder());
+        },
+      ).createRoute(navigatorKey.currentContext!),
+    );
+    return null;
   }
 }
 
