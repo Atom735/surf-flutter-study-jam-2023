@@ -17,10 +17,23 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final navigatorKey = GlobalKey<NavigatorState>(debugLabel: 'RootNavigator');
 
-  late final actions = {
-    ...WidgetsApp.defaultActions,
-    AddTicketDialogOpenIntent: AddTicketDialogOpenAction(navigatorKey),
-  };
+  late Map<Type, Action<Intent>> actions = actionsBuilder();
+
+  Map<Type, Action<Intent>> actionsBuilder() {
+    return {
+      ...WidgetsApp.defaultActions,
+      AddTicketDialogOpenIntent: AddTicketDialogOpenAction(navigatorKey),
+    };
+  }
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    assert(() {
+      actions = actionsBuilder();
+      return true;
+    }());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +77,26 @@ class AddTicketDialogOpenAction extends Action<AddTicketDialogOpenIntent> {
     await navigatorKey.currentState!.push(
       MyModalBottomSheetPage(
         builder: (context) {
-          return SingleChildScrollView(child: Placeholder());
+          return SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Hint Text',
+                    errorText: 'Error Text',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                Center(
+                  child: FilledButton(
+                    onPressed: () {},
+                    child: Text('Добавить'),
+                  ),
+                ),
+              ],
+            ),
+          );
         },
       ).createRoute(navigatorKey.currentContext!),
     );
