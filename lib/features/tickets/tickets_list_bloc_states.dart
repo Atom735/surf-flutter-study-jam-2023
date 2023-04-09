@@ -17,5 +17,8 @@ class TicketsListBlocState with _$TicketsListBlocState {
 
     /// Список билетов.
     required List<TicketsModel> items,
+
+    /// Сообщение об ошибке.
+    String? errorMessage,
   }) = _TicketsListBlocState;
 }

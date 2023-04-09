@@ -1,6 +1,14 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/bottom_sheet/bottom_sheet_widgets.dart';
+import 'core/core_widgets.dart';
+import 'features/tickets/tickets_list_bloc.dart';
+import 'features/tickets/tickets_list_bloc_states.dart';
+import 'features/tickets/tickets_list_widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,13 +34,22 @@ class _MyAppState extends State<MyApp> {
     };
   }
 
+  late var _ticketsListBloc = TicketsListBloc();
+
   @override
   void reassemble() {
     super.reassemble();
     assert(() {
       actions = actionsBuilder();
+      _ticketsListBloc = TicketsListBloc();
       return true;
     }());
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    unawaited(_ticketsListBloc.close());
   }
 
   @override
@@ -44,7 +61,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.deepPurple,
         useMaterial3: true,
       ),
-      home: const MyTicketStorageScreenWidget(),
+      home: MyTicketStorageScreenWidget(ticketsListBloc: _ticketsListBloc),
       actions: actions,
     );
   }
@@ -105,28 +122,48 @@ class AddTicketDialogOpenAction extends Action<AddTicketDialogOpenIntent> {
 }
 
 class MyTicketStorageScreenWidget extends StatelessWidget {
-  const MyTicketStorageScreenWidget({super.key});
+  const MyTicketStorageScreenWidget({
+    Key? key,
+    required this.ticketsListBloc,
+  }) : super(key: key);
+
+  final TicketsListBloc ticketsListBloc;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: Actions.handler(context, const AddTicketDialogOpenIntent()),
-        label: Text(
-          'Добавить',
+    return BlocProvider.value(
+      value: ticketsListBloc,
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton.extended(
+          onPressed:
+              Actions.handler(context, const AddTicketDialogOpenIntent()),
+          label: Text(
+            'Добавить',
+          ),
         ),
-      ),
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            title: Text('Хранение билетов'),
-          ),
-          SliverFillRemaining(
-            child: Center(
-              child: Text('Здесь пока ничего нет'),
+        body: CustomScrollView(
+          slivers: [
+            BlocBuilder(
+              bloc: ticketsListBloc,
+              builder: (context, TicketsListBlocState state) {
+                PreferredSizeWidget? bottom;
+                if (state.isPending) {
+                  bottom = const PreferredSize(
+                    preferredSize: Size.fromHeight(4),
+                    child: LinearProgressIndicator(),
+                  );
+                }
+                return SliverAppBar(
+                  title: Text('Хранение билетов'),
+                  bottom: bottom,
+                );
+              },
             ),
-          ),
-        ],
+            TicketListContentWidget(
+              listType: CoreWidgetListType.sliver,
+            ),
+          ],
+        ),
       ),
     );
   }

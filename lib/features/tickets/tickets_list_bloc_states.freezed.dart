@@ -22,6 +22,9 @@ mixin _$TicketsListBlocState {
   /// Список билетов.
   List<TicketsModel> get items => throw _privateConstructorUsedError;
 
+  /// Сообщение об ошибке.
+  String? get errorMessage => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $TicketsListBlocStateCopyWith<TicketsListBlocState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -33,7 +36,7 @@ abstract class $TicketsListBlocStateCopyWith<$Res> {
           $Res Function(TicketsListBlocState) then) =
       _$TicketsListBlocStateCopyWithImpl<$Res, TicketsListBlocState>;
   @useResult
-  $Res call({bool isPending, List<TicketsModel> items});
+  $Res call({bool isPending, List<TicketsModel> items, String? errorMessage});
 }
 
 /// @nodoc
@@ -52,6 +55,7 @@ class _$TicketsListBlocStateCopyWithImpl<$Res,
   $Res call({
     Object? isPending = null,
     Object? items = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
       isPending: null == isPending
@@ -62,6 +66,10 @@ class _$TicketsListBlocStateCopyWithImpl<$Res,
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<TicketsModel>,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -74,7 +82,7 @@ abstract class _$$_TicketsListBlocStateCopyWith<$Res>
       __$$_TicketsListBlocStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isPending, List<TicketsModel> items});
+  $Res call({bool isPending, List<TicketsModel> items, String? errorMessage});
 }
 
 /// @nodoc
@@ -90,6 +98,7 @@ class __$$_TicketsListBlocStateCopyWithImpl<$Res>
   $Res call({
     Object? isPending = null,
     Object? items = null,
+    Object? errorMessage = freezed,
   }) {
     return _then(_$_TicketsListBlocState(
       isPending: null == isPending
@@ -100,6 +109,10 @@ class __$$_TicketsListBlocStateCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<TicketsModel>,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -108,7 +121,9 @@ class __$$_TicketsListBlocStateCopyWithImpl<$Res>
 
 class _$_TicketsListBlocState implements _TicketsListBlocState {
   const _$_TicketsListBlocState(
-      {required this.isPending, required final List<TicketsModel> items})
+      {required this.isPending,
+      required final List<TicketsModel> items,
+      this.errorMessage})
       : _items = items;
 
   /// Ожидание загрузки списка.
@@ -126,9 +141,13 @@ class _$_TicketsListBlocState implements _TicketsListBlocState {
     return EqualUnmodifiableListView(_items);
   }
 
+  /// Сообщение об ошибке.
+  @override
+  final String? errorMessage;
+
   @override
   String toString() {
-    return 'TicketsListBlocState(isPending: $isPending, items: $items)';
+    return 'TicketsListBlocState(isPending: $isPending, items: $items, errorMessage: $errorMessage)';
   }
 
   @override
@@ -138,12 +157,14 @@ class _$_TicketsListBlocState implements _TicketsListBlocState {
             other is _$_TicketsListBlocState &&
             (identical(other.isPending, isPending) ||
                 other.isPending == isPending) &&
-            const DeepCollectionEquality().equals(other._items, _items));
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, isPending, const DeepCollectionEquality().hash(_items));
+  int get hashCode => Object.hash(runtimeType, isPending,
+      const DeepCollectionEquality().hash(_items), errorMessage);
 
   @JsonKey(ignore: true)
   @override
@@ -156,7 +177,8 @@ class _$_TicketsListBlocState implements _TicketsListBlocState {
 abstract class _TicketsListBlocState implements TicketsListBlocState {
   const factory _TicketsListBlocState(
       {required final bool isPending,
-      required final List<TicketsModel> items}) = _$_TicketsListBlocState;
+      required final List<TicketsModel> items,
+      final String? errorMessage}) = _$_TicketsListBlocState;
 
   @override
 
@@ -166,6 +188,10 @@ abstract class _TicketsListBlocState implements TicketsListBlocState {
 
   /// Список билетов.
   List<TicketsModel> get items;
+  @override
+
+  /// Сообщение об ошибке.
+  String? get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$_TicketsListBlocStateCopyWith<_$_TicketsListBlocState> get copyWith =>

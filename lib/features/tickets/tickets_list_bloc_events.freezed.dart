@@ -16,21 +16,22 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TicketsListBlocEvent {
-  /// Ссылка на скачивание билета.
-  Uri get source => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Uri source) addNewFromUrl,
+    required TResult Function() refresh,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Uri source)? addNewFromUrl,
+    TResult? Function()? refresh,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Uri source)? addNewFromUrl,
+    TResult Function()? refresh,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -38,22 +39,21 @@ mixin _$TicketsListBlocEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(TicketsListBlocEventAddNewFromUrl value)
         addNewFromUrl,
+    required TResult Function(TicketsListBlocEventRefresh value) refresh,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TicketsListBlocEventAddNewFromUrl value)? addNewFromUrl,
+    TResult? Function(TicketsListBlocEventRefresh value)? refresh,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TicketsListBlocEventAddNewFromUrl value)? addNewFromUrl,
+    TResult Function(TicketsListBlocEventRefresh value)? refresh,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $TicketsListBlocEventCopyWith<TicketsListBlocEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -62,8 +62,6 @@ abstract class $TicketsListBlocEventCopyWith<$Res> {
   factory $TicketsListBlocEventCopyWith(TicketsListBlocEvent value,
           $Res Function(TicketsListBlocEvent) then) =
       _$TicketsListBlocEventCopyWithImpl<$Res, TicketsListBlocEvent>;
-  @useResult
-  $Res call({Uri source});
 }
 
 /// @nodoc
@@ -76,29 +74,14 @@ class _$TicketsListBlocEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? source = null,
-  }) {
-    return _then(_value.copyWith(
-      source: null == source
-          ? _value.source
-          : source // ignore: cast_nullable_to_non_nullable
-              as Uri,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$TicketsListBlocEventAddNewFromUrlCopyWith<$Res>
-    implements $TicketsListBlocEventCopyWith<$Res> {
+abstract class _$$TicketsListBlocEventAddNewFromUrlCopyWith<$Res> {
   factory _$$TicketsListBlocEventAddNewFromUrlCopyWith(
           _$TicketsListBlocEventAddNewFromUrl value,
           $Res Function(_$TicketsListBlocEventAddNewFromUrl) then) =
       __$$TicketsListBlocEventAddNewFromUrlCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({Uri source});
 }
@@ -165,6 +148,7 @@ class _$TicketsListBlocEventAddNewFromUrl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(Uri source) addNewFromUrl,
+    required TResult Function() refresh,
   }) {
     return addNewFromUrl(source);
   }
@@ -173,6 +157,7 @@ class _$TicketsListBlocEventAddNewFromUrl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(Uri source)? addNewFromUrl,
+    TResult? Function()? refresh,
   }) {
     return addNewFromUrl?.call(source);
   }
@@ -181,6 +166,7 @@ class _$TicketsListBlocEventAddNewFromUrl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Uri source)? addNewFromUrl,
+    TResult Function()? refresh,
     required TResult orElse(),
   }) {
     if (addNewFromUrl != null) {
@@ -194,6 +180,7 @@ class _$TicketsListBlocEventAddNewFromUrl
   TResult map<TResult extends Object?>({
     required TResult Function(TicketsListBlocEventAddNewFromUrl value)
         addNewFromUrl,
+    required TResult Function(TicketsListBlocEventRefresh value) refresh,
   }) {
     return addNewFromUrl(this);
   }
@@ -202,6 +189,7 @@ class _$TicketsListBlocEventAddNewFromUrl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(TicketsListBlocEventAddNewFromUrl value)? addNewFromUrl,
+    TResult? Function(TicketsListBlocEventRefresh value)? refresh,
   }) {
     return addNewFromUrl?.call(this);
   }
@@ -210,6 +198,7 @@ class _$TicketsListBlocEventAddNewFromUrl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(TicketsListBlocEventAddNewFromUrl value)? addNewFromUrl,
+    TResult Function(TicketsListBlocEventRefresh value)? refresh,
     required TResult orElse(),
   }) {
     if (addNewFromUrl != null) {
@@ -224,13 +213,117 @@ abstract class TicketsListBlocEventAddNewFromUrl
   const factory TicketsListBlocEventAddNewFromUrl({required final Uri source}) =
       _$TicketsListBlocEventAddNewFromUrl;
 
-  @override
-
   /// Ссылка на скачивание билета.
   Uri get source;
-  @override
   @JsonKey(ignore: true)
   _$$TicketsListBlocEventAddNewFromUrlCopyWith<
           _$TicketsListBlocEventAddNewFromUrl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TicketsListBlocEventRefreshCopyWith<$Res> {
+  factory _$$TicketsListBlocEventRefreshCopyWith(
+          _$TicketsListBlocEventRefresh value,
+          $Res Function(_$TicketsListBlocEventRefresh) then) =
+      __$$TicketsListBlocEventRefreshCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$TicketsListBlocEventRefreshCopyWithImpl<$Res>
+    extends _$TicketsListBlocEventCopyWithImpl<$Res,
+        _$TicketsListBlocEventRefresh>
+    implements _$$TicketsListBlocEventRefreshCopyWith<$Res> {
+  __$$TicketsListBlocEventRefreshCopyWithImpl(
+      _$TicketsListBlocEventRefresh _value,
+      $Res Function(_$TicketsListBlocEventRefresh) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$TicketsListBlocEventRefresh implements TicketsListBlocEventRefresh {
+  const _$TicketsListBlocEventRefresh();
+
+  @override
+  String toString() {
+    return 'TicketsListBlocEvent.refresh()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$TicketsListBlocEventRefresh);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Uri source) addNewFromUrl,
+    required TResult Function() refresh,
+  }) {
+    return refresh();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Uri source)? addNewFromUrl,
+    TResult? Function()? refresh,
+  }) {
+    return refresh?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Uri source)? addNewFromUrl,
+    TResult Function()? refresh,
+    required TResult orElse(),
+  }) {
+    if (refresh != null) {
+      return refresh();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TicketsListBlocEventAddNewFromUrl value)
+        addNewFromUrl,
+    required TResult Function(TicketsListBlocEventRefresh value) refresh,
+  }) {
+    return refresh(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TicketsListBlocEventAddNewFromUrl value)? addNewFromUrl,
+    TResult? Function(TicketsListBlocEventRefresh value)? refresh,
+  }) {
+    return refresh?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TicketsListBlocEventAddNewFromUrl value)? addNewFromUrl,
+    TResult Function(TicketsListBlocEventRefresh value)? refresh,
+    required TResult orElse(),
+  }) {
+    if (refresh != null) {
+      return refresh(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class TicketsListBlocEventRefresh implements TicketsListBlocEvent {
+  const factory TicketsListBlocEventRefresh() = _$TicketsListBlocEventRefresh;
 }

@@ -14,4 +14,7 @@ class TicketsListBlocEvent with _$TicketsListBlocEvent {
     /// Ссылка на скачивание билета.
     required Uri source,
   }) = TicketsListBlocEventAddNewFromUrl;
+
+  /// Обновление списка билетов.
+  const factory TicketsListBlocEvent.refresh() = TicketsListBlocEventRefresh;
 }
